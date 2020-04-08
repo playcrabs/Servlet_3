@@ -31,7 +31,7 @@ public class HomeController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		RequestDispatcher view = request.getRequestDispatcher("./WEB-INF/views/index/jsp");
+		RequestDispatcher view = request.getRequestDispatcher("./WEB-INF/views/index.jsp");
 		view.forward(request, response);
 	}
 
