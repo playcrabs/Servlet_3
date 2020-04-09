@@ -1,6 +1,28 @@
 # Servlet_3
  
 ## 기능
+
+###member
+- 로그인 (select)
+- 회원 가입 (insert)
+- 회원 수정 (update)
+- 회원 탈퇴 (delete)
+- mypage 
+
+##JSP
+- /WEB-INF/view/member/...
+
+URL
+- /member/memberJoin		memberJoin.jsp		 get
+- /member/memberJoin							 post
+- /member/memberLogin		memberLogin.jsp		 get
+- /member/memberLogin							 post
+- /member/memberPage		memberpage.jsp		 get
+- /member/memberUpdate	memberUpdate.jsp	 get
+- /member/memberUpdate						 post
+- /member/memberDelete	memberDelete.jsp	 get
+
+###point
 - ponint list 출력
 - point 등록
 - point 상세 정보 출력
