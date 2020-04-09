@@ -22,3 +22,5 @@
 - /point/pointMod	/	pointMod.jsp	/	get
 - /point/pointMod	/	 				/	post	(DB저장용)
 - /point/pointDelete/					/	get
+
+# 학원에선
