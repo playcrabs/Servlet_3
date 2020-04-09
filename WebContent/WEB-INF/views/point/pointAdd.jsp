@@ -77,8 +77,11 @@
 					class="form-control" id="math" placeholder="Enter Math" name="math">
 			</div>
 
-			<a href="./pointAdd?num=${dto.num}" class="btn btn-success">Submit</a>
+			<!-- a태그는 주소 이동이고, button은 파라미터 넘기기 -->
+			<input type="submit" class="btn btn-success">
+			<!-- <button type="submit" class="btn btn-success">Submit</button> -->
+			<%-- <a href="./pointAdd?num=${dto.num}" class="btn btn-success">Submit</a> --%>
 		</form>
 	</div>
-</body>
+</body>   
 </html>

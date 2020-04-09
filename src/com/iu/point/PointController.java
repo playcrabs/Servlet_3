@@ -61,30 +61,42 @@ public class PointController extends HttpServlet {
 
 			} else if (command.equals("/pointAdd")) {
 				if (method.equals("POST")) {
-					PointDTO pointDTO = new PointDTO();		
-					
+					PointDTO pointDTO = new PointDTO();
+
 					pointDTO.setName(request.getParameter("name"));
-					int num = Integer.parseInt(request.getParameter("num"));
-					int kor = Integer.parseInt(request.getParameter("kor"));
-					int eng = Integer.parseInt(request.getParameter("eng"));
-					int math = Integer.parseInt(request.getParameter("math"));
-					pointDTO.setNum(num);
-					pointDTO.setKor(kor);
-					pointDTO.setEng(eng);
-					pointDTO.setMath(math);
+					pointDTO.setNum(Integer.parseInt(request.getParameter("num")));
+					pointDTO.setKor(Integer.parseInt(request.getParameter("kor")));
+					pointDTO.setEng(Integer.parseInt(request.getParameter("eng")));
+					pointDTO.setMath(Integer.parseInt(request.getParameter("math")));
 
 					int result = pointService.pointAdd(pointDTO);
-					String msg = "Fail";
-					if(result >0 ) {
-						msg = "Success";
-					}
+
+					check = false;
+					path = "./pointList";
+
 				} else {
 					path = "../WEB-INF/views/point/pointAdd.jsp";
 				}
 
 			} else if (command.equals("/pointMod")) {
 				if (method.equals("POST")) {
+					PointDTO pointDTO = new PointDTO();
+
+					pointDTO.setName(request.getParameter("name"));
+					pointDTO.setNum(Integer.parseInt(request.getParameter("num")));
+					pointDTO.setKor(Integer.parseInt(request.getParameter("kor")));
+					pointDTO.setEng(Integer.parseInt(request.getParameter("eng")));
+					pointDTO.setMath(Integer.parseInt(request.getParameter("math")));
+					
+					int result = pointService.pointMod(pointDTO);
+				
+					check = false;
+					path = "./pointSelect?num="+pointDTO.getNum();
+
 				} else {
+					int num = Integer.parseInt(request.getParameter("num"));
+					PointDTO pointDTO = pointService.pointSelect(num);
+					request.setAttribute("dto", pointDTO);
 					path = "../WEB-INF/views/point/pointMod.jsp";
 				}
 
@@ -94,14 +106,14 @@ public class PointController extends HttpServlet {
 				request.setAttribute("dto", pointDTO);
 				path = "../WEB-INF/views/point/pointSelect.jsp";
 
-			}else if(command.equals("/pointDelete")) {
+			} else if (command.equals("/pointDelete")) {
 				int num = Integer.parseInt(request.getParameter("num"));
-				
+
 				int result = pointService.pointDelete(num);
-				
-				check=false;
-				path="./pointList";
-				
+
+				check = false;
+				path = "./pointList";
+
 			} else {
 				System.out.println("ETC");
 			}
