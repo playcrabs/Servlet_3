@@ -23,5 +23,3 @@
 - /point/pointMod	/	 				/	post	(DB저장용)
 - /point/pointDelete/					/	get
 
-# HOME ADD1
-# HOME ADD2
