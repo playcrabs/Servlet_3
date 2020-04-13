@@ -75,7 +75,7 @@ public class PointController extends HttpServlet {
 					}
 
 					request.setAttribute("result", msg);
-					request.setAttribute(path, "./pointList");
+					request.setAttribute("path", "./pointList");
 					path = "../WEB-INF/views/common/result.jsp";
 
 				} else {
@@ -115,9 +115,13 @@ public class PointController extends HttpServlet {
 				}
 
 			} else if (command.equals("/pointSelect")) {
+
 				int num = Integer.parseInt(request.getParameter("num"));
+
 				PointDTO pointDTO = pointService.pointSelect(num);
+
 				request.setAttribute("dto", pointDTO);
+
 				path = "../WEB-INF/views/point/pointSelect.jsp";
 
 			} else if (command.equals("/pointDelete")) {
